@@ -1,0 +1,960 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    user-select: none;
+}
+
+body {
+    overflow-y: hidden;
+    overflow-x: auto;
+    background: url(../img/bg.jpg) no-repeat #012700;
+}
+
+
+/* hover數字以外下注區增加對應數字區class */
+.region:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 30, 0.2);
+    z-index: 1; 
+}
+
+/* 增加手指鼠標 */
+.chipsbox img:hover,
+.clearbtn:hover,
+.btn:hover{
+    cursor: pointer;
+}
+
+
+/* ========== bgpic start ========== */
+.bgpic {
+    width: 1360px;
+    height: 725px;
+    position: relative;
+}
+/* ========== bgpic end ========== */
+
+
+
+
+/* ========== plate start  輪盤 & 金球 ========== */
+.plate {
+    width: 37%;
+    position: absolute;
+    border-radius: 50%;
+    top: -45px;
+    left: -30px;
+    box-shadow: -20px 5px 45px 1px #0f2100;
+}
+
+.plate img {
+    width: 100%;
+}
+
+.ball_box {
+    width: 15px;
+    height: 450px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    transition: 0.2s;
+}
+
+.ball {
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(125deg, #FCDB6E 40%, #fff, #FCDB6E);
+    border-radius: 50%;
+}
+
+.rotate {
+    animation: plate_rotate 2s infinite linear;
+}
+
+.rotate2 {
+    animation: plate_rotate2 1s infinite linear;
+}
+
+.show {
+    width: 100px;
+    height: 100px;
+    font-size: 70px;
+    line-height: 100px;
+    flex-wrap: bold;
+    border-radius: 50%;   
+    position: absolute;
+    transition: 0.5s;
+    text-align: center;
+    top: 201px;
+    left: 201px;
+    opacity: 0;
+}
+
+/* 轉盤show開獎數字區域各色球類設定 */
+.redball{
+    color: #fff;
+    background-color: #f00;
+    box-shadow: 0 0 30px 5px rgb(136, 16, 26) inset;
+    text-shadow: 1px 1px 0px rgb(136, 16, 26);
+}
+
+.blackball{
+    color: #fff;
+    background-color: #444;
+    box-shadow: 0 0 30px 5px rgb(0, 0, 0) inset;
+    text-shadow: 1px 1px 0px rgb(0, 0, 0)
+}
+
+.yellowball{
+    color: #391B04;
+    background-color: #FBE3A5;
+    box-shadow: 0 0 30px 5px #ED9A22 inset;
+    text-shadow: 1px 1px 0px #EB9514 ;
+}
+
+@keyframes plate_rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes plate_rotate2 {
+    0% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+/* ========== plate end ========== */
+
+
+
+
+/* ========== money start  玩家金額,目前下注額,總共贏得金額顯示 ========== */
+.money {
+    width: 800px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 25px;
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    display: flex;
+    color: rgb(235, 210, 110);
+    box-shadow: 0px 5px 5px #021e02 inset;
+    border-radius: 50px;
+}
+
+.money>div {
+    width: 100%;
+    padding: 0 20px;
+}
+
+.money tt {
+    color: #fff;
+}
+
+.money>div:first-child {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 40px 0 0 40px;
+}
+
+.money>div:nth-child(2) {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.money>div:last-child {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0 40px 40px 0;
+}
+
+/* ========== money end ========== */
+
+
+
+
+/* ========== betbox start 籌碼下注區域 ========== */
+.betbox {
+    width: 840px;
+    height: 500px;
+    position: absolute;
+    bottom: 120px;
+    right: 25px;
+}
+
+
+/* betbox > numberbox start */
+
+.numberbox {
+    width: 300px;
+    height: 720px;
+    display: flex;
+    flex-wrap: wrap;
+    transform: rotate(-90deg);
+    position: absolute;
+    top: -210px;
+    right: 270px;
+    text-align: center;
+    z-index: 2;
+}
+
+.numberbox>div {
+    width: 100px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 30px;
+    color: #fff;
+    border: 1px solid #fff;
+    position: relative;
+}
+
+.numberbox>div:nth-child(even) {
+    background-color: #f00;
+    box-shadow: 0 0 20px 2px rgb(136, 16, 26) inset;
+}
+
+.numberbox>div:nth-child(odd) {
+    background-color: #000;
+}
+
+.numberbox>div:nth-child(1),
+.numberbox>div:nth-child(3),
+.numberbox>div:nth-child(5),
+.numberbox>div:nth-child(7),
+.numberbox>div:nth-child(9),
+.numberbox>div:nth-child(19),
+.numberbox>div:nth-child(21),
+.numberbox>div:nth-child(23),
+.numberbox>div:nth-child(25),
+.numberbox>div:nth-child(27) {
+    background-color: #f00;
+    box-shadow: 0 0 20px 2px rgb(136, 16, 26) inset;
+}
+
+.numberbox>div:nth-child(2),
+.numberbox>div:nth-child(4),
+.numberbox>div:nth-child(6),
+.numberbox>div:nth-child(8),
+.numberbox>div:nth-child(10),
+.numberbox>div:nth-child(20),
+.numberbox>div:nth-child(22),
+.numberbox>div:nth-child(24),
+.numberbox>div:nth-child(26),
+.numberbox>div:nth-child(28) {
+    background-color: #000;
+    box-shadow: none;
+}
+
+.numberbox>div:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 30, 0.2);
+}
+
+.numberbox .chippic {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 16px;
+    left: -15px;
+}
+
+.numberbox img {
+    width: 100%;
+    transform: rotate(90deg);
+    position: absolute;
+    z-index: 1;
+}
+
+.numberbox img:nth-child(2) {
+    left: 24px;
+}
+
+.numberbox img:nth-child(3) {
+    left: 28px;
+}
+
+.numberbox img:nth-child(4) {
+    left: 32px;
+}
+
+.numberbox img:nth-child(5) {
+    left: 36px;
+}
+
+.numberbox img:nth-child(6) {
+    left: 40px;
+}
+
+.numberbox span {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    font-size: 16px;
+    top: 17px;
+    right: 13px;
+    opacity: 0;
+}
+
+
+/* betbox > partbox start */
+
+.partbox {
+    width: 720px;
+    height: 100px;
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+}
+
+.partbox>div {
+    width: 240px;
+    height: 100px;
+    line-height: 100px;
+    font-size: 35px;
+    color: #fff;
+    text-align: center;
+    border: 1px solid #fff;
+    position: relative;
+}
+
+.partbox .chippic {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 41px;
+    left: 0px;
+}
+
+.partbox img {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.partbox img:nth-child(2) {
+    top: -4px;
+}
+
+.partbox img:nth-child(3) {
+    top: -8px;
+}
+
+.partbox img:nth-child(4) {
+    top: -12px;
+}
+
+.partbox img:nth-child(5) {
+    top: -16px;
+}
+
+.partbox img:nth-child(6) {
+    top: -20px;
+}
+
+.partbox span {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    font-size: 16px;
+    top: -30px;
+    right: 15px;
+    opacity: 0;
+}
+
+.partbox>div:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 30, 0.2);
+}
+
+
+/* betbox > selectbox start */
+
+.selectbox {
+    width: 720px;
+    height: 100px;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    color: #fff;
+}
+
+.selectbox>div {
+    width: 120px;
+    height: 100px;
+    font-size: 25px;
+    line-height: 100px;
+    text-align: center;
+    border: 1px solid #fff;
+    position: relative;
+}
+
+.selectbox div:nth-child(3):after {
+    width: 55px;
+    height: 55px;
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 5px;
+    transform: rotate(45deg);
+    background-color: #F00;
+    box-shadow: 0 0 20px 2px rgb(136, 16, 26) inset;
+}
+
+.selectbox div:nth-child(4):after {
+    width: 55px;
+    height: 55px;
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    border-radius: 5px;
+    transform: rotate(45deg);
+    background-color: #000;
+}
+
+.selectbox .chippic {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 41px;
+    left: 18px;
+}
+
+.selectbox img {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+}
+
+.selectbox img:nth-child(2) {
+    top: -4px;
+}
+
+.selectbox img:nth-child(3) {
+    top: -8px;
+}
+
+.selectbox img:nth-child(4) {
+    top: -12px;
+}
+
+.selectbox img:nth-child(5) {
+    top: -16px;
+}
+
+.selectbox img:nth-child(6) {
+    top: -20px;
+}
+
+.selectbox span {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    font-size: 16px;
+    top: -30px;
+    right: 15px;
+    opacity: 0;
+}
+
+.selectbox>div:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 30, 0.2);
+    z-index: 1;
+}
+
+
+/* betbox > rowbox start */
+
+.rowbox {
+    width: 60px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    transform: rotate(-180deg);
+    writing-mode: vertical-lr;
+}
+
+.rowbox>div {
+    width: 60px;
+    height: 100px;
+    font-size: 25px;
+    line-height: 60px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #fff;
+    position: relative;
+}
+
+.rowbox .chippic {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: -9px;
+    left: 8px;
+}
+
+.rowbox img {
+    width: 100%;
+    transform: rotate(180deg);
+    position: absolute;
+    z-index: 1;
+}
+
+.rowbox img:nth-child(2) {
+    top: 24px;
+}
+
+.rowbox img:nth-child(3) {
+    top: 28px;
+}
+
+.rowbox img:nth-child(4) {
+    top: 32px;
+}
+
+.rowbox img:nth-child(5) {
+    top: 36px;
+}
+
+.rowbox img:nth-child(6) {
+    top: 40px;
+}
+
+.rowbox span {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    font-size: 16px;
+    top: 65px;
+    right: 59px;
+    opacity: 0;
+}
+
+.rowbox>div:hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 30, 0.2);
+}
+
+
+/* betbox > zerobox start */
+
+.zerobox {
+    width: 60px;
+    height: 300px;
+    line-height: 60px;
+    font-size: 40px;
+    text-align: center;
+    line-height: 60px;
+    position: absolute;
+    overflow: hidden;
+    color: #fff;
+    writing-mode: vertical-lr;
+}
+
+.zerobox::after {
+    content: '';
+    position: absolute;
+    width: 448px;
+    height: 448px;
+    border-radius: 50%;
+    display: block;
+    border: 1px solid #fff;
+    top: -74px;
+    left: 2px;
+}
+/* ========== betbox end ========== */
+
+
+
+
+/* ========== chipsbox start 籌碼 & 旋轉/清除按鈕 ========== */
+.chipsbox {
+    width: 720px;
+    height: 100px;
+    position: absolute;
+    bottom: 12px;
+    right: 85px;
+    margin: auto;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.chipsbox img {
+    width: 50px;
+    height: 50px;
+    vertical-align: hidden;
+    border-radius: 50%;
+    margin-right: 50px;
+    flex-shrink: 1;
+    box-shadow: -4px 3px 10px 1px #042804;
+    transition: 0.3s;
+}
+
+.chipsbox img:hover {
+    transform: scale(1.2);
+}
+
+.btn {
+    width: 280px;
+    height: 80px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #E8D491, #FDFCDD, #C69A53, #FDFCDD);
+    position: relative;
+    outline: none;
+    margin-right: 10px;
+    border: 0;
+    box-shadow: -4px 3px 10px 1px #042804;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    background: radial-gradient(circle at 100% 0%, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, 0) 30%), linear-gradient(to bottom, #e45f5f 0%, #b81e1e 100%);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.btn:hover:before{
+    background: linear-gradient(to bottom, #c12828 0%,#e45f5f 100%);
+}
+
+.btn>span {
+    font-size: 30px;
+    color: #F3EBBC;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-shadow: 2px 2px 1px #a00f0f;
+}
+
+.btn.btnbf::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);   
+    background: radial-gradient(circle at 100% 0%, rgba(239, 239, 239, 0.3) 0%,rgba(185, 185, 185, 0) 40%), linear-gradient(to bottom, #6a6a6a 0%,#7d7d7d 100%);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+.btn .btnsp{
+    color: #939393;
+    text-shadow: 2px 2px 1px #4c4a4a;
+}
+
+.clearbtn {
+    width: 120px;
+    height: 80px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #E8D491, #FDFCDD, #C69A53, #FDFCDD);
+    position: relative;
+    outline: none;
+    border: 0;
+    box-shadow: -4px 3px 10px 1px #042804;
+}
+
+.clearbtn::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);   
+    background: radial-gradient(circle at 100% 0%, rgba(239, 239, 239, 0.3) 0%,rgba(185, 185, 185, 0) 40%), linear-gradient(to bottom, #6a6a6a 0%,#7d7d7d 100%);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+
+.clearbtn>span {
+    font-size: 25px;
+    color: #939393;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-shadow: 2px 2px 1px #4c4a4a;
+}
+
+.clearbtn.clearbf::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    background: radial-gradient(circle at 100% 0%, rgba(255, 255, 255, .2) 0%, rgba(255, 255, 255, 0) 30%), linear-gradient(to bottom, #4ba2c6 0%, #20789b 100%);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.clearbtn.clearbf:hover:before{
+    background: linear-gradient(to bottom, #20789b 0%,#4ba2c6 100%);
+}
+
+.clearbtn .clearsp{
+    color: #F3EBBC;
+    text-shadow: 2px 2px 1px #227A9D;
+}
+
+/* ========== chipsbox end ========== */
+
+
+
+
+/* ========== showwin start 贏得金額畫面 ========== */
+.showwin {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: -1;
+    transition: 0.2s;
+    opacity: 0;
+}
+
+.showwinpic {
+    width: 850px;
+    height: 770px;
+    position: absolute;
+    background: url(../img/money.png) no-repeat center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: 0.2s;
+    transform: scale(0.1);
+}
+
+.youwin {
+    width: 550px;
+    height: 237px;
+    background: url(../img/youwin.svg) no-repeat center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    opacity: 0;
+    transition: 0.2s;
+    transform: scale(2);
+}
+
+.winmoney {
+    width: 550px;
+    height: 237px;
+    text-align: center;
+    position: absolute;
+    top: 266px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 80px;
+    color: #ffcc06;
+    text-shadow: 2px 3px #710903;
+}
+/* ========== showwin end ========== */
+
+
+
+
+/* ========== nobet start 無下注金額按下SPIN後提示畫面 ========== */
+.nobet {
+    width: 780px;
+    height: 500px;
+    position: absolute;
+    top: 105px;
+    right: 25px;
+    z-index: -1;
+    opacity: 0;
+}
+
+.shownb {
+    width: 720px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-top: 5px solid rgb(255, 224, 121);
+    border-left: 5px solid rgb(255, 224, 121);
+}
+
+.showrow {
+    width: 60px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-top: 5px solid rgb(255, 224, 121);
+    border-right: 5px solid rgb(255, 224, 121);
+    border-bottom: 5px solid rgb(255, 224, 121);
+}
+
+.showsel {
+    width: 720px;
+    height: 205px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-left: 5px solid rgb(255, 224, 121);
+    border-right: 5px solid rgb(255, 224, 121);
+    border-bottom: 5px solid rgb(255, 224, 121);
+}
+
+.error {
+    width: 720px;
+    height: 100px;   
+    line-height: 100px;
+    text-align: center;
+    font-size: 80px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 83px;
+    margin: auto;
+    color: transparent;
+    color: #ffe000;
+    text-shadow: 5px 5px 5px #1b0b02,
+                 -1px -1px 0 #1b0b02,
+                  1px -1px 0 #1b0b02,
+                  -1px 1px 0 #1b0b02,
+                   1px 1px 0 #1b0b02;
+    z-index: -1;
+    opacity: 0;
+}
+
+.shownobet {
+    opacity: 1;
+    z-index: 4;
+}
+
+.showmax{
+    opacity: 1;
+    z-index: 4;
+    height: 200px;
+}
+
+
+/* ========== nobet end ========== */
+
+
+
+/* ========== guide start 遊戲起始引導畫面 ========== */
+.guide{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 2; 
+}
+
+#guidechip{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 37px;
+    right: 546px;
+    opacity: 0;
+    z-index: 3;
+}
+
+.finger{
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 60px;
+    color: #fff;
+    position: absolute;
+    bottom: -23px;
+    right: 700px;
+    z-index: 4;
+}
+
+.guideshow{
+    z-index: 3;
+}
+
+/* ========== guide end ========== */

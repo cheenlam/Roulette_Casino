@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="img/2.png" type="image/x-icon" />
+    <script src="https://kit.fontawesome.com/78e6f741f4.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Roulette Casino</title>
+
+</head>
+
+<body>
+
+    <div class="bgpic">
+
+        <!-- ========== plate start  輪盤 & 金球 ========== -->
+        <div class="plate" id="plate">
+            <img src="img/plate.png">
+            <div class="ball_box" id="ball_box">
+                <div class="ball"></div>
+            </div>
+            <div class="show" id="show">16</div>
+        </div>
+        <!-- ========== plate end ========== -->
+
+
+
+        <!-- ========== money start  玩家金額,目前下注額,總共贏得金額顯示 ========== -->
+
+        <div class="money">
+            <!-- money > mymoney start -->
+            <div class="mymoney">
+                <span>AMOUNT：<tt id="myMoney">2000</tt></span>
+            </div>
+            <!-- money > bet start -->
+            <div class="bet">
+                <span>BET：<tt id="bet">0</tt></span>
+            </div>
+            <div class="history">
+                <span>WIN：<tt id="history">0</tt></span>
+            </div>
+        </div>
+        <!-- ========== money end ========== -->
+
+
+        <!-- ========== betbox start  籌碼下注區域 ========== -->
+        <div class="betbox" id="betBox">
+            <!-- betbox > numberbox start -->
+            <div class="numberbox" id="numberBox">
+                <div id="nbbox_1">1
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_2">2
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_3">3
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_4">4
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_5">5
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_6">6
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_7">7
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_8">8
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_9">9
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_10">10
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_11">11
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_12">12
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_13">13
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_14">14
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_15">15
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_16">16
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_17">17
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_18">18
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_19">19
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_20">20
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_21">21
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_22">22
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_23">23
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_24">24
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_25">25
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_26">26
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_27">27
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_28">28
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_29">29
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_30">30
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_31">31
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_32">32
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_33">33
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_34">34
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_35">35
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="nbbox_36">36
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+            </div>
+
+            <!-- betbox > partbox start -->
+            <div class="partbox" id="partBox">
+                <div id="partbox_1">1st 12
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="partbox_2">2nd 12
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="partbox_3">3rd 12
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+            </div>
+
+            <!-- betbox > selectbox start -->
+            <div class="selectbox" id="selectBox">
+                <div id="selectbox_1">1 to 18
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="selectbox_2">EVEN
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="selectbox_3">
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="selectbox_4">
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="selectbox_5">ODD
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="selectbox_6">19 to 36
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+            </div>
+
+            <!-- betbox > rowbox start -->
+            <div class="rowbox" id="rowBox">
+                <div id="rowbox_1">2 to 1
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="rowbox_2">2 to 1
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+                <div id="rowbox_3">2 to 1
+                    <span>0</span>
+                    <div class="chippic">
+                        <img class="chippic_01" src="img/0.png">
+                        <img class="chippic_02" src="img/0.png">
+                        <img class="chippic_03" src="img/0.png">
+                        <img class="chippic_04" src="img/0.png">
+                        <img class="chippic_05" src="img/0.png">
+                        <img class="chippic_06" src="img/0.png">
+                    </div>
+                </div>
+            </div>
+
+            <!-- betbox > zerobox start -->
+            <div class="zerobox">0</div>
+        </div>
+        <!-- ========== betbox end ========== -->
+
+
+
+        <!-- ========== chipsbox start 籌碼 & 旋轉/清除按鈕 ========== -->
+        <div class="chipsbox">
+            <img src="img/chips_01.png" id="chipskind_1" draggable="true">
+            <img src="img/chips_02.png" id="chipskind_2" draggable="true">
+            <img src="img/chips_03.png" id="chipskind_3" draggable="true">
+            <button id="btn" class="btn">
+                    <span>SPIN</span>
+            </button>
+            <button class="clearbtn" id="clearbtn">
+                    <span>CLEAR</span>
+            </button>
+        </div>
+
+        <!-- ========== chipsbox end ========== -->
+
+
+
+
+        <!-- ========== showwin start 贏得金額畫面 ========== -->
+        <div class="showwin" id="showWin">
+            <div class="showwinpic" id="showwinpic"></div>
+            <div class="youwin" id="youwin">
+                <div class="winmoney">$ <tt>150</tt></div>
+            </div>
+        </div>
+        <!-- ========== showwin end ========== -->
+
+
+
+
+        <!-- ========== nobet start 無下注金額按下SPIN後提示畫面 ========== -->
+        <div class="nobet" id="nobet">
+            <div class="shownb"></div>
+            <div class="showrow"></div>
+            <div class="showsel"></div>
+        </div>
+
+        <!-- 無下注時顯示 PLACE YOUR BET -->
+        <!-- 超過最大下注時顯示 Over Maximum Betting Limit -->
+        <span class="error" id="error">PLACE YOUR BET</span>
+        <!-- ========== nobet end ========== -->
+
+
+
+        <!-- ========== guide start 遊戲起始引導畫面 ========== -->
+
+        <div class="guide" id="guide"></div>
+        <div class="finger" id="finger">
+            <i class="fas fa-hand-point-up"></i>
+        </div>
+        <img src="img/chips_03.png" id="guidechip">
+
+        <!-- ========== guide end ========== -->
+
+    </div>
+
+
+
+    <!-- 設定變數 & 判斷函式 -->
+    <script src="script/begin.js"></script>
+    <script src="script/function.js"></script>
+    <!-- 下注區監聽 & 參數回傳 -->
+    <script src="script/bet.js"></script>
+    <!-- 輪盤動作 & 判斷部分  -->
+    <script src="script/plate.js"></script>
+    <!-- 遊戲起始引導畫面 -->
+    <script src="script/guide.js"></script>
+
+    <script>
+        
+    </script>
+
+
+</body>
+
+</html>
